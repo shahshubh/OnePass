@@ -1,0 +1,15 @@
+{
+  "name": "onepass",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "shubh shah",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^11.2.3"
+  }
+}
