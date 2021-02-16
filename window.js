@@ -2,6 +2,11 @@ var windowUtil = require("./js/windowUtil");
 var th = require("./js/templateHelper");
 
 $(() => {
+
+    $("#message-cross").on("click", function(){
+        $("#message").parent()[0].style.display = "none";
+    });
+
     $('#filterKey').bind('input propertychange', function () {
         const text = this.value;
         if (text && text.length > 0) {

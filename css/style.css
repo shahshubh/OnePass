@@ -1,31 +1,48 @@
 html,
 body,
 .container-fluid {
+	/* background-color: #f3f3f3; */
 	background-color: #263238;
-}
 
+}
 
 #container {
 	margin-top: 1em;
 }
 
-/* #passwordItems {
-	height: 300px;
-	overflow-y: auto;
-	overflow-x: hidden;
-} */
-
-/* .pwditem,
-.newpwditem {
-	margin-bottom: 0.5em;
-} */
-
 #message {
-	margin: 0.5em 1em;
+	/* margin: 0.5em 1em; */
 	color: #000;
 }
 
+hr{
+  background-color: #fff;
+}
+
+
+/* ------------------------------------------ */
+
+
+.alert.alert-success {
+  /* display: flex; */
+  justify-content: space-between;
+  align-items: center;
+  display: none;
+  text-align: center;
+}
+
+.alert.alert-success #message-cross:hover{
+  cursor: pointer;
+}
+
+
+
 /*** Table Styles **/
+
+.table-mid-container{
+  height: 400px;
+  overflow: auto;
+}
 
 .table-fill {
 	/* background: white; */
@@ -38,9 +55,14 @@ body,
 	width: 90%;
 	/* box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); */
 	animation: float 5s infinite;
-    border-collapse: collapse;
+  border-collapse: collapse;
 	/* overflow: hidden; */
 	/* box-shadow: 0 0 20px rgba(0,0,0,0.1); */
+  
+}
+
+table{
+  height: 100px;
 }
 
 /* table td {
@@ -71,7 +93,10 @@ tr {
     display: flex;
     /* width: 100%; */
     margin: 0;
-    background-color: #fff;
+    /* background-color: #fff; */
+    background: #ECE9E6;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     /* background: linear-gradient(45deg, #49a09d, #5f2c82) !important; */
     /* border: 1px solid #fff; */
 
@@ -117,7 +142,6 @@ td {
 	font-weight: 300;
 	font-size: 18px;
 	text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
-	border-right: 1px solid #c1c3d1;
     /* flex: 1; */
     padding: 15px;
 	/* background-color: rgba(255,255,255,0.2); */
@@ -140,15 +164,25 @@ td input.form-control{
 td input.form-control:focus{
     outline: 0 !important;
     box-shadow: none !important;
+    background-color: transparent;
 }
 
 td button{
     margin: 3px;
 }
 
+.key-td{
+	border-right: 1px solid #c1c3d1;
+}
+
 .key-td, .value-td{
     flex: 1;
 }
+
+.btn-td{
+  /* flex: 0.5; */
+}
+
 
 
 td:last-child {

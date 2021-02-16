@@ -8,17 +8,18 @@ module.exports = {
         <td class="text-left value-td">
             <input id="%VALUEID%" type="password" class="form-control form-control-sm text-input value" value="%VALUE%" />
         </td>
-        <td>
+        <td class="btn-td" >
             <button id="%GENBTNID%" type="button" class="btn btn-sm btn-info generate" title="generate secure random password"><i class="fas fa-random fa-lg"></i></button>
         </td>
-        <td>
+        <td class="btn-td" >
             <button id="%SAVEBTNID%" type="button" class="btn btn-sm btn-success save" title="save item">
                 <i class="far fa-save fa-lg"></i>
             </button>
         </td>
-        <td>
+        <td class="btn-td" >
             <button id="%DELBTNID%" type="button" class="btn btn-sm btn-danger delete" title="remove item"><i class="fas fa-trash fa-lg"></i></button>
         </td>
+        
     </tr>
 
     `

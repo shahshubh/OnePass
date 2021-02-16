@@ -23,7 +23,8 @@ exports.generatePassword = (item) => {
 
     $(valueID).val(randomPassword);
 
-    $("#message").text("the password is generated");
+    $("#message").parent()[0].style.display = "flex";
+    $("#message").text("The password is generated");
 }
 
 exports.loadItems = (callback) => {
@@ -45,6 +46,7 @@ exports.updateItem = (item) => {
         return;
 
     hd.updateJsonData($(hdnID).val(), $(keyID).val(), $(valueID).val(), function(message) {
+        $("#message").parent()[0].style.display = "flex";
         $("#message").text(message);
     });
     
@@ -64,8 +66,10 @@ exports.addItem = (item, callback) => {
     }
 
     hd.addJsonData($(keyID).val(), $(valueID).val(), function(element) {
-        if(element == null)
+        if(element == null){
+            $("#message").parent()[0].style.display = "flex";
             $("#message").text("Item already exists or error occured");
+        }
         $(keyID).val("");
         $(valueID).val("");
         callback(element);
@@ -89,7 +93,8 @@ exports.deleteItem = (item) => {
     hd.deleteJsonData($(hdnID).val(), function(message) {
         // refresh items list after remove
         $(itemID).remove();
-
+        
+        $("#message").parent()[0].style.display = "flex";
         $("#message").text(message);
     });
 }
