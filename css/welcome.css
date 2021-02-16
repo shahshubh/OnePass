@@ -1,0 +1,129 @@
+html,
+body {
+	min-height: 100%;
+	background-color: #f3f3f3;
+}
+body {
+	/* background: #f6f6f6 url(https://goo.gl/1yhE3P) top center no-repeat; */
+	background-size: cover;
+	font-family: "Open Sans", sans-serif;
+	font-size: 14px;
+	margin: 0;
+}
+#box {
+	width: 400px;
+	margin: 0 auto;
+	text-align: center;
+	/* background:rgba(255,255,255,0.6); */
+	padding: 20px 50px;
+	box-sizing: border-box;
+	/* box-shadow:0 3px 12px rgba(0,0,0,0.2);
+    border-radius:2% */
+}
+h1 {
+	/* margin-bottom: 1.5em; */
+	font-size: 30px;
+	color: #484548;
+	font-weight: 100;
+}
+h1 span,
+small {
+	display: block;
+	font-size: 14px;
+	color: #989598;
+}
+small {
+	font-style: italic;
+	font-size: 11px;
+}
+form p {
+	position: relative;
+}
+
+#pswd-submit{
+	width: 100%;
+	padding: 8px;
+	margin-bottom: 5px;
+	border: 1px solid #263238;
+	border-bottom: 2px solid #263238;
+	background: #263238 !important;
+	color: #fff;
+	outline-color: #263238;
+}
+
+.password {
+	outline-color: #263238;
+	width: 90%;
+	padding: 15px 12px;
+	margin-bottom: 5px;
+	border: 1px solid #e5e5e5;
+	border-bottom: 2px solid #ddd;
+	background: rgba(255, 255, 255, 0.2) !important;
+	color: #555;
+}
+.password + .unmask {
+	position: absolute;
+	right: 7%;
+	top: 10px;
+	width: 25px;
+	height: 25px;
+	background: transparent;
+	border-radius: 50%;
+	cursor: pointer;
+	border: none;
+	font-family: "fontawesome";
+	font-size: 14px;
+	line-height: 24px;
+	-webkit-appearance: none;
+	outline: none;
+}
+.password + .unmask:before {
+	content: "\f06e";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 25px;
+	height: 25px;
+	background: rgba(205, 205, 205, 0.2);
+	z-index: 1;
+	color: #aaa;
+	border: 2px solid;
+	border-radius: 50%;
+}
+.password[type="text"] + .unmask:before {
+	content: "\f070";
+	background: rgba(105, 205, 255, 0.2);
+	color: #06a;
+}
+#valid {
+	font-size: 12px;
+	color: #daa;
+	height: 15px;
+}
+#strong {
+	height: 20px;
+	font-size: 12px;
+	color: rgb(255, 147, 147);
+	text-transform: capitalize;
+	background: rgba(205, 205, 205, 0.1);
+	border-radius: 15px;
+	overflow: hidden;
+}
+
+#strong span {
+	display: block;
+	box-shadow: 0 0 0 #fff inset;
+	height: 100%;
+	transition: all 0.8s;
+}
+#strong .weak {
+	box-shadow: 5em 0 0 rgb(255, 147, 147) inset;
+}
+#strong .medium {
+	color: #da6;
+	box-shadow: 10em 0 0 #da6 inset;
+}
+#strong .strong {
+	color: #595;
+	box-shadow: 50em 0 0 #ada inset;
+}

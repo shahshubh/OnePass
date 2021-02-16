@@ -1,22 +1,56 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>Welcome</title>
-</head>
-<body>
-    <div id="container" class="container-fluid">
-        <h1 id="title">WELCOME</h1>
-        <div class="row">
-            <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
-                <input id="master-key" type="text" class="form-control text-input" placeholder="Master Password" />
-            </div>
-            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                <button id="pswd-submit" type="button" class="btn btn-info" title="clear filter">Enter</button>
-            </div>
-        </div>
-    </div>
+    <head>
+        <meta charset="UTF-8">
+        <title>Welcome</title>
+        <script>
+            delete module.exports
+        </script>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="></script>
+        <link
+            href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+            rel="stylesheet">
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Open+Sans">
 
-    <script src="./welcome.js" ></script>
-</body>
-</html>
+        <link rel="stylesheet" href="./css/welcome.css">
+    </head>
+    <body>
+        <!-- <div id="container" class="container-fluid">
+            <h1 id="title">WELCOME</h1>
+            <div class="row">
+                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+                    <input id="master-key" type="text" class="form-control
+                        text-input" placeholder="Master Password" />
+                </div>
+                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                    <button id="pswd-submit" type="button" class="btn btn-info"
+                        title="clear filter">Enter</button>
+                </div>
+            </div>
+        </div> -->
+        <div id="box">
+            <form id="myform-search" method="post" autocomplete="off">
+                <h1>
+                    OnePass
+                    <!-- <span>choose a good one!</span> -->
+                </h1>
+                <img src="./images/welcome-logo.svg" />
+                <h4 id="title"></h4>
+                <form>
+                    <p>
+                        <input type="password" value="" placeholder="Enter Password" id="master-key" class="password">
+                        <button id="eyeBtn" class="unmask" type="button"></button>
+                    </p>
+                    <button id="pswd-submit" type="button">Submit</button>
+                    <div id="strong"><span></span></div>
+                    <div id="valid"></div>
+                    <small>Must be 6+ characters long and contain at least 1
+                        upper case letter, 1 number, 1 special character</small>
+                </form>
+            </div>
+
+            <script src="./welcome.js"></script>
+        </body>
+    </html>

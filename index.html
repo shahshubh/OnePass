@@ -14,7 +14,12 @@
 </head>
 <body>
     <div id="container" class="container-fluid">
-        <div class="row">
+        <div class="search-container">
+            <input id="filterKey" type="text" placeholder="Search...">
+            <div id="resetFilter" class="search"></div>
+        </div>
+
+        <!-- <div class="row">
             <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
                 <input id="filterKey" type="text" class="form-control text-input" placeholder="filter key" title="write key to filter" />
             </div>
@@ -23,9 +28,26 @@
             </div>
             <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
             </div>
-        </div>
+        </div> -->
+        
         <hr />
-        <div id="passwordItems"></div>
+        <div >
+            <table class="table-fill" >
+                <!-- <thead>
+                    <tr>
+                        <th>Key</th>
+                        <th>Password</th>
+                        <th>Password</th>
+                        <th>Password</th>
+                        <th>Password</th>
+                    </tr>
+                </thead>
+                 -->
+                <tbody id="passwordItems" >
+                </tbody>
+            </table>
+        </div>
+
         <hr />
         <div class="row newpwditem">
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">

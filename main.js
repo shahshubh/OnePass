@@ -8,7 +8,7 @@ let window = null
 app.once('ready', () => {
   window = new BrowserWindow({
     width: 800,
-    height: 600,
+    height: 700,
     backgroundColor: "#6a6a6a",
     show: false,
     webPreferences: {
