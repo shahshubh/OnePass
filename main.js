@@ -3,10 +3,10 @@ const path = require('path');
 const url = require('url');
 const ipcMain = require('electron').ipcMain;
 
-let window = null
+let mainWindow = null
 
 app.once('ready', () => {
-  window = new BrowserWindow({
+  mainWindow = new BrowserWindow({
     width: 800,
     height: 700,
     backgroundColor: "#6a6a6a",
@@ -14,18 +14,29 @@ app.once('ready', () => {
     webPreferences: {
       nodeIntegration: true
     }
-  })
+  });
 
-  window.setMenuBarVisibility(false);
+  splash = new BrowserWindow({width: 600, height: 400, transparent: true, frame: false, alwaysOnTop: true});
+  splash.loadURL(url.format({
+    pathname: path.join(__dirname, '/splash.html'),
+    protocol: 'file:',
+    slashes: true
+  }));
 
-  window.loadURL(url.format({
+  mainWindow.setMenuBarVisibility(false);
+
+  mainWindow.loadURL(url.format({
     pathname: path.join(__dirname, '/welcome.html'),
     protocol: 'file:',
     slashes: true
   }))
 
-  window.once('ready-to-show', () => {
-      window.show();
+  mainWindow.once('ready-to-show', () => {
+      // splash.show();
+    setTimeout(function(){
+      splash.destroy();
+      mainWindow.show();
+    }, 4800);
   })
 });
 
@@ -34,5 +45,5 @@ app.on('window-all-closed', () => {
 });
 
 ipcMain.on('load-page', (event, arg) => {
-  window.loadURL(arg);
+  mainWindow.loadURL(arg);
 });
