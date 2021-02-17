@@ -305,3 +305,22 @@ body header #main_search_element.expand #search_icon_circle #search_icon_backgro
   outline: none;
   border: none;
 }
+
+
+
+
+
+
+
+
+::-webkit-scrollbar {
+  width: 8px;
+  
+  /* background: #2d3436; */
+  background: #edecfa;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #636e72;
+  border-radius: 8px;
+}

@@ -1,5 +1,6 @@
 var hd = require("../utils/handleData");
 var utils = require("../utils/utils");
+const { Confirm } = require('../utils/confirm-dialog');
 
 // show password when input field is focused
 exports.showPassword = (item) => {
@@ -86,15 +87,27 @@ exports.deleteItem = (item) => {
     let itemID = "#item".concat("_", index.toString());
 
     let keyVal = $(keyID).val();
-    let conf = confirm("Are you sure to delete the key ".concat(keyVal));
-    if(!conf)
-        return;
-
-    hd.deleteJsonData($(hdnID).val(), function(message) {
-        // refresh items list after remove
-        $(itemID).remove();
-        
-        $("#message").parent()[0].style.display = "flex";
-        $("#message").text(message);
-    });
+    Confirm(
+        "Confirm",
+        "Are you sure to delete the key ".concat(keyVal),
+        "Yes",
+        "No", 
+        function(isConfirm){
+            if(isConfirm){
+                hd.deleteJsonData($(hdnID).val(), function(message) {
+                    // refresh items list after remove
+                    $(itemID).remove();
+    
+                    $("#message").parent()[0].style.display = "flex";
+                    $("#message").text(message);
+                });
+            }
+            else {
+                return;
+            }
+        }
+    );
+    // let conf = confirm("Are you sure to delete the key ".concat(keyVal));
+    // if(!conf)
+        // return;
 }
