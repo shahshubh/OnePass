@@ -13,13 +13,28 @@
     <script src="./window.js" charset="utf-8"></script>
 </head>
 <body>
+    <header>
+        <div id="top_element"></div>
+        <div id="main_search_element">
+          <div id="search_icon_circle">
+            <div id="search_icon_background">
+              <i class="fa fa-search action-expand" aria-hidden="true"></i>
+      
+              <input id="filterKey" type="text" placeholder="Search" />
+      
+              <i id= "resetFilter" class="fa fa-times action-collapse" aria-hidden="true"></i>
+            </div>
+          </div>
+      
+        </div>
+      </header>
     <div id="container" class="container-fluid">
         <!-- <div class="search-container">
             <input id="filterKey" type="text" placeholder="Search...">
             <div id="resetFilter" class="search"></div>
         </div> -->
 
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
                 <input id="filterKey" type="text" class="form-control text-input" placeholder="filter key" title="write key to filter" />
             </div>
@@ -28,9 +43,9 @@
             </div>
             <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
             </div>
-        </div>
+        </div> -->
         
-        <hr />
+        <!-- <hr /> -->
         <div class="table-mid-container" >
             <div class="alert alert-success" role="alert">
                 <span id="message">message</span>

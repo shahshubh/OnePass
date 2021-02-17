@@ -2,7 +2,7 @@ html,
 body,
 .container-fluid {
 	/* background-color: #f3f3f3; */
-	background-color: #263238;
+	background-color: #fff;
 
 }
 
@@ -42,6 +42,7 @@ hr{
 .table-mid-container{
   height: 400px;
   overflow: auto;
+  margin-top: 30px;
 }
 
 .table-fill {
@@ -95,8 +96,8 @@ tr {
     margin: 0;
     /* background-color: #fff; */
     background: #ECE9E6;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to left, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: -webkit-linear-gradient(to right, #FFFFFF, #edecfa);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #FFFFFF, #edecfa); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     /* background: linear-gradient(45deg, #49a09d, #5f2c82) !important; */
     /* border: 1px solid #fff; */
 
@@ -213,140 +214,94 @@ td.text-right {
 	text-align: right;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@import url("https://fonts.googleapis.com/css?family=Inconsolata:700");
-* {
-  margin: 0;
+/* body {
   padding: 0;
-  box-sizing: border-box;
-}
-
-
-.search-container {
-  position: absolute;
-  /* margin: auto; */
-  margin-top: 20px;
-  margin-left: 10px;
-  top: 0;
-  left: 0;
-  width: 300px;
+  margin: 0;
+} */
+body header {
+  width: 100%;
   height: 50px;
+  background-color: #edecfa;
+  display: flex;
+  flex-direction: column;
 }
-.search-container .search {
-  position: absolute;
-  margin: auto;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 60px;
-  height: 60px;
-  background: crimson;
-  border-radius: 50%;
-  transition: all 1s;
-  z-index: 4;
-  box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.4);
+body header #top_element {
+  height: 100%;
+  background-color: #edecfa;
 }
-.search-container .search:hover {
-  cursor: pointer;
+/* body header h4{
+  position: relative;
+  top: 25px;
+  left: 30px;
+} */
+body header #main_search_element {
+  height: 0;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.search-container .search::before {
-  content: "";
-  position: absolute;
-  margin: auto;
-  top: 22px;
-  right: 0;
-  bottom: 0;
-  left: 22px;
-  width: 12px;
-  height: 2px;
-  background: white;
-  transform: rotate(45deg);
-  transition: all 0.5s;
-}
-.search-container .search::after {
-  content: "";
-  position: absolute;
-  margin: auto;
-  top: -5px;
-  right: 0;
-  bottom: 0;
-  left: -5px;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  border: 2px solid white;
-  transition: all 0.5s;
-}
-.search-container input {
-  font-family: "Inconsolata", monospace;
-  position: absolute;
-  margin: auto;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+body header #main_search_element #search_icon_circle {
   width: 50px;
   height: 50px;
+  background: #ffffff;
+  display: block;
+  border-radius: 100px/100px;
+  position: relative;
+  /* top: -22px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease-in;
+}
+body header #main_search_element #search_icon_circle #search_icon_background {
+  width: 40px;
+  height: 40px;
+  background-color: #908ae0;
+  box-shadow: 10px 10px 20px 0px #d7d3f3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100px/100px;
+  position: relative;
+  /* top: -7px; */
+  cursor: pointer;
+  transition: all 0.4s ease-in;
+}
+body header #main_search_element #search_icon_circle #search_icon_background .fa {
+  color: #ffffff;
+  left: 2px;
+  position: relative;
+}
+body header #main_search_element #search_icon_circle #search_icon_background .fa-times {
+  display: none;
+}
+body header #main_search_element #search_icon_circle #search_icon_background input {
+  transition: all 0.4s ease-in;
+  opacity: 0;
+  width: 0;
+  background: #908ae0;
+  border: none;
+  outline: none;
+  color: #fff;
+}
+body header #main_search_element.expand #search_icon_circle {
+  border-radius: 20px;
+  width: 300px;
+}
+body header #main_search_element.expand #search_icon_circle #search_icon_background {
+  width: 260px;
+  border-radius: 10px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+body header #main_search_element.expand #search_icon_circle #search_icon_background .fa-times {
+  display: block;
+}
+body header #main_search_element.expand #search_icon_circle #search_icon_background input {
+  width: 220px;
+  opacity: 1;
+  padding-left: 10px;
   outline: none;
   border: none;
-  background: crimson;
-  color: white;
-  text-shadow: 0 0 10px crimson;
-  padding: 0 80px 0 20px;
-  border-radius: 30px;
-  box-shadow: 0 0 25px 0 crimson, 0 20px 25px 0 rgba(0, 0, 0, 0.2);
-  transition: all 1s;
-  opacity: 0;
-  z-index: 5;
-  font-weight: bolder;
-  letter-spacing: 0.1em;
-}
-.search-container input:hover {
-  cursor: pointer;
-}
-.search-container input:focus {
-  width: 300px;
-  opacity: 1;
-  cursor: text;
-}
-.search-container input:focus ~ .search {
-  right: -250px;
-  background: #151515;
-  z-index: 6;
-}
-.search-container input:focus ~ .search::before {
-  top: 0;
-  left: 0;
-  width: 25px;
-}
-.search-container input:focus ~ .search::after {
-  top: 0;
-  left: 0;
-  width: 25px;
-  height: 2px;
-  border: none;
-  background: white;
-  border-radius: 0%;
-  transform: rotate(-45deg);
-}
-.search-container input::placeholder {
-  color: white;
-  opacity: 0.5;
-  font-weight: bolder;
 }
