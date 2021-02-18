@@ -305,3 +305,88 @@ body header #main_search_element.expand #search_icon_circle #search_icon_backgro
   outline: none;
   border: none;
 }
+
+.menu{
+  /* width:800px;
+  height:52px; */
+  position:relative;
+  /* top:200px;
+  left:100px; */
+  font-family: "Trebuchet MS", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.item{
+  position:relative;
+  background-color:#f0f0f0;
+  float:right;
+  width:42px;
+  margin:3px 5px;
+  height:42px;
+  border:2px solid #ddd;
+  -moz-border-radius:25px;
+  -webkit-border-radius:25px;
+  border-radius:25px;
+  /* -moz-box-shadow:1px 1px 3px #555; */
+  /* -webkit-box-shadow:1px 1px 3px #555; */
+  /* box-shadow:1px 1px 3px #555; */
+  cursor:pointer;
+  overflow:hidden;
+}
+
+.left{
+  float: left;
+
+}
+
+.link{
+  left:7px;
+  top:6px;
+  position:absolute;
+  width:33px;
+  height:33px;
+}
+
+.icon_home{
+  /* background:transparent url(../images/settings.png) no-repeat top left;
+  background-size: 30px; */
+  font-size: 25px;
+  color: #908ae0;
+}
+
+.item_content{
+  position:absolute;
+  height:52px;
+  width:220px;
+  overflow:hidden;
+  left:43px;
+  top:7px;
+  background:transparent;
+  display:none;
+}
+.item_content h2{
+  color:#aaa;
+  text-shadow: 1px 1px 1px #fff;
+  background-color:transparent;
+  font-size:14px;
+}
+.item_content a{
+  background-color:transparent;
+  float:left;
+  margin-right:7px;
+  margin-top:3px;
+  color:rgb(124, 122, 122);
+  text-shadow: 1px 1px 1px #fff;
+  text-decoration:none;
+  font-size:14px;
+}
+.item_content a:hover{
+  color:#0b965b;
+}
+.item_content p {
+  background-color:transparent;
+  display:none;
+}

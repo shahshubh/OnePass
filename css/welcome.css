@@ -49,6 +49,7 @@ form p {
 	background: #263238 !important;
 	color: #fff;
 	outline-color: #263238;
+	cursor: pointer;
 }
 
 .password {
