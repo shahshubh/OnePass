@@ -123,8 +123,10 @@
     <!-- <script src="jquery-css-transform.js" type="text/javascript"></script> -->
     <script src="jquery-animate-css-rotate-scale.js" type="text/javascript"></script>
     <script>
+        const ipc = require('electron').ipcRenderer;
         $('.logout-item').on('click', () => {
             console.log('Logout');
+            ipc.send('load-page', 'file://' + __dirname + '/welcome.html');
         });
         $('.item').hover(
             function(){
