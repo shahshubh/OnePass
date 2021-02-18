@@ -180,9 +180,9 @@ td button{
     flex: 1;
 }
 
-.btn-td{
-  /* flex: 0.5; */
-}
+/* .btn-td{
+  flex: 0.5;
+} */
 
 
 
@@ -389,4 +389,21 @@ body header #main_search_element.expand #search_icon_circle #search_icon_backgro
 .item_content p {
   background-color:transparent;
   display:none;
+
+}
+
+
+
+
+
+::-webkit-scrollbar {
+  width: 8px;
+  
+  /* background: #2d3436; */
+  background: #edecfa;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #636e72;
+  border-radius: 8px;
 }

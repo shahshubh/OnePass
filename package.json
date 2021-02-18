@@ -11,5 +11,9 @@
   "license": "ISC",
   "devDependencies": {
     "electron": "^11.2.3"
+  },
+  "dependencies": {
+    "check-password-strength": "^1.0.15",
+    "password-validator": "^5.1.1"
   }
 }

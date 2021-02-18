@@ -10,6 +10,28 @@ body {
 	font-size: 14px;
 	margin: 0;
 }
+
+
+
+/* ------------------------------------------ */
+
+
+.alert.alert-danger {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	display: none;
+	text-align: center;
+}
+
+.alert.alert-danger #message-cross:hover{
+	cursor: pointer;
+}
+
+
+
+
+
 #box {
 	width: 400px;
 	margin: 0 auto;
@@ -54,7 +76,7 @@ form p {
 
 .password {
 	outline-color: #263238;
-	width: 90%;
+	width: 100%;
 	padding: 15px 12px;
 	margin-bottom: 5px;
 	border: 1px solid #e5e5e5;
@@ -65,7 +87,7 @@ form p {
 .password + .unmask {
 	position: absolute;
 	right: 7%;
-	top: 10px;
+	top: 13px;
 	width: 25px;
 	height: 25px;
 	background: transparent;
