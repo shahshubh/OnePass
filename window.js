@@ -62,6 +62,11 @@ $(() => {
                     th.templateBinder();
                     //scroll to bottom after adding item
                     scrollToBottom(".table-mid-container");
+                    $("#message").parent()[0].style.display = "flex";
+                    $("#message").text("Added Successfully !!");
+                    setTimeout(function(){
+                      $(".alert.alert-success").fadeOut('fast');
+                  }, 2000);
                 }
             });
         });

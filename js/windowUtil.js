@@ -2,6 +2,13 @@ var hd = require("../utils/handleData");
 var utils = require("../utils/utils");
 const { Confirm } = require('../utils/confirm-dialog');
 
+
+function removeFlashMessage(className){
+    setTimeout(function(){
+        $(className).fadeOut('fast');
+    }, 2000);
+}
+
 // show password when input field is focused
 exports.showPassword = (item) => {
     if (item.type === "password")
@@ -26,6 +33,8 @@ exports.generatePassword = (item) => {
 
     $("#message").parent()[0].style.display = "flex";
     $("#message").text("The password is generated");
+    removeFlashMessage(".alert.alert-success");
+    
 }
 
 exports.loadItems = (callback) => {
@@ -49,6 +58,7 @@ exports.updateItem = (item) => {
     hd.updateJsonData($(hdnID).val(), $(keyID).val(), $(valueID).val(), function(message) {
         $("#message").parent()[0].style.display = "flex";
         $("#message").text(message);
+        removeFlashMessage(".alert.alert-success");
     });
     
     $(hdnID).val($(keyID).val());
@@ -68,8 +78,9 @@ exports.addItem = (item, callback) => {
 
     hd.addJsonData($(keyID).val(), $(valueID).val(), function(element) {
         if(element == null){
-            $("#message").parent()[0].style.display = "flex";
-            $("#message").text("Item already exists or error occured");
+            $("#error-message").parent()[0].style.display = "flex";
+            $("#error-message").text("Item already exists or error occured");
+            removeFlashMessage(".alert.alert-danger");
         }
         $(keyID).val("");
         $(valueID).val("");
@@ -100,6 +111,7 @@ exports.deleteItem = (item) => {
     
                     $("#message").parent()[0].style.display = "flex";
                     $("#message").text(message);
+                    removeFlashMessage(".alert.alert-success");
                 });
             }
             else {
