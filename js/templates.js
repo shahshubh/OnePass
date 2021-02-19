@@ -9,15 +9,15 @@ module.exports = {
             <input id="%VALUEID%" type="password" class="form-control form-control-sm text-input value" value="%VALUE%" />
         </td>
         <td class="btn-td" >
-            <button id="%GENBTNID%" type="button" class="btn btn-sm btn-info generate" title="generate secure random password"><i class="fas fa-random fa-lg"></i></button>
+            <button id="%GENBTNID%" type="button" class="btn btn-sm btn-info generate round" title="generate secure random password"><i class="fas fa-random fa-md"></i></button>
         </td>
         <td class="btn-td" >
-            <button id="%SAVEBTNID%" type="button" class="btn btn-sm btn-success save" title="save item">
+            <button id="%SAVEBTNID%" type="button" class="btn btn-sm btn-success save round" title="save item">
                 <i class="far fa-save fa-lg"></i>
             </button>
         </td>
         <td class="btn-td" >
-            <button id="%DELBTNID%" type="button" class="btn btn-sm btn-danger delete" title="remove item"><i class="fas fa-trash fa-lg"></i></button>
+            <button id="%DELBTNID%" type="button" class="btn btn-sm btn-outline-danger btn-floating delete round" title="remove item"><i class="fas fa-trash fa-md"></i></button>
         </td>
         
     </tr>
