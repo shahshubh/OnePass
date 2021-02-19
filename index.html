@@ -19,14 +19,57 @@
 		/>
 		<link rel="stylesheet" href="./css/style.css" />
 		<link rel="stylesheet" href="./css/confirm-dialog.css" />
-
-		<script
-			src="https://code.jquery.com/jquery-3.3.1.min.js"
-			integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-		></script>
-		<script src="./window.js" charset="utf-8"></script>
 	</head>
 	<body>
+		<!-- Modal -->
+		<div
+			class="modal fade"
+			id="changePasswordModal"
+			tabindex="-1"
+			role="dialog"
+			aria-labelledby="changePasswordModalLabel"
+			aria-hidden="true"
+		>
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="changePasswordModalLabel">
+							Change Master Password
+						</h5>
+						<button
+							type="button"
+							class="close"
+							data-dismiss="modal"
+							aria-label="Close"
+						>
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="form-group">
+								<label for="current-pass">Current Password</label>
+								<input type="password" class="form-control" id="current-pass" placeholder="Enter your current password">
+							</div>
+							<div class="form-group">
+								<label for="new-pass">New Password</label>
+								<input type="password" class="form-control" id="new-pass" placeholder="Enter your new password">
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button
+							type="button"
+							class="btn btn-secondary"
+							data-dismiss="modal"
+						>
+							Cancel
+						</button>
+						<button type="button" id="change-pass-submit-btn" class="btn btn-primary">Save changes</button>
+					</div>
+				</div>
+			</div>
+		</div>
 		<header>
 			<div id="top_element">
 				<div class="menu">
@@ -42,13 +85,17 @@
 						</div>
 					</div>
 
-					<div class="item left">
+					<div
+						class="item left change-pass-item"
+						data-toggle="modal"
+						data-target="#changePasswordModal"
+					>
 						<!-- <a class="link icon_home"></a> -->
 						<i class="link icon_home fas fa-key"></i>
 						<div class="item_content">
 							<!-- <h2>Change Master Pass</h2> -->
 							<p>
-								<a href="#">Change Master</a>
+								<a href="#">Change Password</a>
 							</p>
 						</div>
 					</div>
@@ -58,7 +105,7 @@
 						<div class="item_content">
 							<!-- <h2>Export Excel</h2> -->
 							<p>
-								<a href="#">Export Excel</a>
+								<a href="#">Export To Csv</a>
 							</p>
 						</div>
 					</div>
@@ -81,22 +128,6 @@
 			</div>
 		</header>
 		<div id="container" class="container-fluid">
-			<!-- <div class="search-container">
-            <input id="filterKey" type="text" placeholder="Search...">
-            <div id="resetFilter" class="search"></div>
-        </div> -->
-
-			<!-- <div class="row">
-            <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
-                <input id="filterKey" type="text" class="form-control text-input" placeholder="filter key" title="write key to filter" />
-            </div>
-            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                <button id="resetFilter" type="button" class="btn btn-info" title="clear filter"><i class="fas fa-circle-notch fa-lg"></i></button>
-            </div>
-            <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
-            </div>
-        </div> -->
-
 			<!-- <hr /> -->
 			<div class="alert alert-success" role="alert">
 				<span id="message"></span>
@@ -138,7 +169,7 @@
         </div> -->
 		</div>
 		<div>
-			<div style="margin: 0;" class="row newpwditem">
+			<div style="margin: 0" class="row newpwditem">
 				<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
 					<div class="input-group">
 						<div class="input-group-prepend">
@@ -151,7 +182,6 @@
 							type="text"
 							class="form-control text-input key"
 							placeholder="Key"
-							aria-label="Username"
 							aria-describedby="basic-addon1"
 						/>
 					</div>
@@ -161,15 +191,14 @@
 					<div class="input-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text" id="basic-addon1"
-								><i class="fas fa-key" style="opacity: 0.8"></i
+								><i class="fas fa-key"></i
 							></span>
 						</div>
 						<input
 							id="value_9999"
 							type="password"
 							class="form-control text-input value"
-							placeholder="password"
-							aria-label="Username"
+							placeholder="Password"
 							aria-describedby="basic-addon1"
 						/>
 					</div>
@@ -177,96 +206,49 @@
 				</div>
 
 				<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-					<div style="float: right;" >
+					<div style="float: right">
 						<button
-						id="gbtn_9999"
-						type="button"
-						class="btn btn-info generate round"
-						title="generate secure random password"
-					>
-						<i class="fas fa-random fa-md"></i>
-					</button>
-					<!-- <button id="sbtn_9999" type="button" class="btn btn-success addNew" title="add new item"><i class="fas fa-plus-circle fa-lg"></i></button> -->
-					<button
-						id="sbtn_9999"
-						type="button"
-						class="btn btn-success btn-floating addNew round"
-						title="add new item"
-						data-mdb-ripple-color="dark"
-					>
-						<i class="fas fa-plus"></i>
-					</button>
+							id="gbtn_9999"
+							type="button"
+							class="btn btn-info generate round"
+							title="generate secure random password"
+						>
+							<i class="fas fa-random fa-md"></i>
+						</button>
+						<!-- <button id="sbtn_9999" type="button" class="btn btn-success addNew" title="add new item"><i class="fas fa-plus-circle fa-lg"></i></button> -->
+						<button
+							id="sbtn_9999"
+							type="button"
+							class="btn btn-success btn-floating addNew round"
+							title="add new item"
+							data-mdb-ripple-color="dark"
+						>
+							<i class="fas fa-plus"></i>
+						</button>
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<!-- <script src="./js/jquery-css-transform.js" type="text/javascript"></script> -->
-		<script src="./exportToCsv.js" charset="utf-8"></script>
+
+
 		<script
-			src="./js/jquery-animate-css-rotate-scale.js"
-			type="text/javascript"
+			src="https://code.jquery.com/jquery-3.3.1.min.js"
+			integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
 		></script>
-		<script>
-			const ipc = require("electron").ipcRenderer;
-			$(".logout-item").on("click", () => {
-				console.log("Logout");
-				ipc.send("load-page", "file://" + __dirname + "/welcome.html");
-			});
-
-			
-
-			$(".item").hover(
-				function () {
-					console.log("print hovered");
-					var $this = $(this);
-					expand($this);
-				},
-				function () {
-					var $this = $(this);
-					collapse($this);
-				}
-			);
-			function expand($elem) {
-				console.log("expand");
-				var angle = 0;
-				var t = setInterval(function () {
-					if (angle == 1440) {
-						clearInterval(t);
-						return;
-					}
-					// angle += 40;
-					// $('.link',$elem).stop().animate({rotate: '+=-40deg'}, 0);
-				}, 10);
-				$elem
-					.stop()
-					.animate({ width: "175px" }, 300)
-					.find(".item_content")
-					.fadeIn(100, function () {
-						$(this).find("p").stop(true, true).fadeIn(200);
-					});
-			}
-			function collapse($elem) {
-				// console.log("collapse");
-				var angle = 1440;
-				var t = setInterval(function () {
-					if (angle == 0) {
-						clearInterval(t);
-						return;
-					}
-					// angle -= 40;
-					// $('.link',$elem).stop().animate({rotate: '+=40deg'}, 0);
-				}, 10);
-				$elem
-					.stop()
-					.animate({ width: "43px" }, 300)
-					.find(".item_content")
-					.stop(true, true)
-					.fadeOut()
-					.find("p")
-					.stop(true, true)
-					.fadeOut();
-			}
-		</script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+			integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+			integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+			crossorigin="anonymous"
+		></script>
+		<!-- <script src="./js/jquery-css-transform.js" type="text/javascript"></script> -->
+		<script src="./js/jquery-animate-css-rotate-scale.js" type="text/javascript" ></script>
+		<script src="./exportToCsv.js" charset="utf-8"></script>
+		<script src="./window.js" charset="utf-8"></script>
 	</body>
 </html>

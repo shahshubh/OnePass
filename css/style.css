@@ -3,7 +3,8 @@
   --white: #ffffff;
   --gray: #e7e7de;
   --secondaryBlue: #00587a;
-  --lightBlue: #008891;
+  /* --lightBlue: #008891; */
+  --lightBlue: rgba(0, 136, 145, 0.1);
 }
 
 
@@ -230,14 +231,24 @@ td.text-right {
   position: fixed;
   left: 0px;
   bottom: 0px;
-  padding: 5px;
+  padding: 10px;
   padding-bottom: 10px;
-  /* z-index: 2; */
-  
   /* background-color: #908ae0; */
   /* background-color: #edecfa; */
-  background-color: var(--primaryBlue);
+  background-color: var(--lightBlue);
 }
+
+.input-group-text{
+  border: none;
+  background-color: var(--primaryBlue);
+  color: #fff;
+}
+
+input:focus{
+  outline: none !important;
+  box-shadow: none !important;
+}
+
 
 .round{
   border-radius: 18rem !important; 
@@ -287,7 +298,7 @@ body header #main_search_element #search_icon_circle #search_icon_background {
   height: 40px;
   /* background-color: #908ae0; */
   background-color: var(--primaryBlue);
-  box-shadow: 10px 10px 20px 0px #d7d3f3;
+  /* box-shadow: 10px 10px 20px 0px #d7d3f3; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -353,24 +364,19 @@ body header #main_search_element.expand #search_icon_circle #search_icon_backgro
   font-size: 16px;
   font-style: normal;
   font-weight: normal;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 }
 
 .item{
   position:relative;
-  /* background-color:#f0f0f0; */
   background-color: var(--primaryBlue);
   float:right;
-  width:42px;
+  width:40px;
   margin:3px 5px;
-  height:42px;
+  height:40px;
   /* border:2px solid #ddd; */
-  -moz-border-radius:25px;
-  -webkit-border-radius:25px;
-  border-radius:25px;
-  -moz-box-shadow:1px 1px 3px #fff;
-  -webkit-box-shadow:1px 1px 3px #fff;
-  box-shadow:1px 1px 3px #fff;
+  border-radius: 20px;
+  box-shadow:1px 1px 7px 0px var(--primaryBlue);
   cursor:pointer;
   overflow:hidden;
 }
@@ -391,9 +397,15 @@ body header #main_search_element.expand #search_icon_circle #search_icon_backgro
 .icon_home{
   /* background:transparent url(../images/settings.png) no-repeat top left;
   background-size: 30px; */
-  font-size: 25px;
+  font-size: 22px;
   color: #fff;
-  padding: 2px;
+  padding: 3px;
+}
+
+.icon_home.fa-file-export{
+  font-size: 20px;
+  padding-left: 4px;
+  padding-top: 4px;
 }
 
 .item_content{

@@ -1,10 +1,53 @@
-var windowUtil = require("./js/windowUtil");
-var th = require("./js/templateHelper");
+const windowUtil = require("./js/windowUtil");
+const handleData = require("./utils/handleData");
+const th = require("./js/templateHelper");
+// const cryp = require("./utils/cryptography");
+const fs = require("fs");
+const passwordValidator = require('password-validator');
+let schema = new passwordValidator();
+const ipc = require('electron').ipcRenderer;
+
+
+// password validator schema
+schema
+    .is().min(6)                                    // Minimum length 8
+    .is().max(100)                                  // Maximum length 100
+    .has().uppercase(1)                            // Must have uppercase letters
+    .has().lowercase(1)                              // Must have lowercase letters
+    .has().digits(1)
+    .has().symbols(1)                                // Must have at least 2 digits/
+    .has().not().spaces();
 
 
 function scrollToBottom(elementName){
   var element = document.querySelector(elementName);
   element.scrollTop = element.scrollHeight - element.clientHeight;
+}
+
+function removeFlashMessage(className){
+  setTimeout(function(){
+      $(className).fadeOut('fast');
+  }, 1500);
+}
+
+function changePassword(newPassword){
+  handleData.loadJsonData(function (jsonData) {
+    let data = jsonData;
+    data.masterKey = cryp.encrypt(newPassword);
+
+    fs.writeFile("./data/data.json", JSON.stringify(jsonData, null, 2), function (err) {
+        if (err) {
+            console.log(err);
+        }
+        $("#message").parent()[0].style.display = "flex";
+        $("#message").text("Password changed successfully !!");
+        removeFlashMessage(".alert.alert-success");
+        setTimeout(() => {
+          ipc.send('load-page', 'file://' + __dirname + '/welcome.html');
+        }, 700);
+    });
+});
+  
 }
 
 $(() => {
@@ -76,7 +119,7 @@ $(() => {
 
 
 
-    // Search Items
+    // ------------------------- Search Items -------------------------
 
     const ELEMENTS = {
       MAIN_SEARCH_ELEMENT: "#main_search_element",
@@ -119,6 +162,108 @@ $(() => {
         searchIconExpandToggle();
       };
     };
+
+
+
+    // ------------------------- Top Header Icons -------------------------
+    const ipc = require("electron").ipcRenderer;
+			$(".logout-item").on("click", () => {
+				console.log("Logout");
+				ipc.send("load-page", "file://" + __dirname + "/welcome.html");
+			});
+
+			
+
+			$(".item").hover(
+				function () {
+					console.log("print hovered");
+					var $this = $(this);
+					expand($this);
+				},
+				function () {
+					var $this = $(this);
+					collapse($this);
+				}
+			);
+			function expand($elem) {
+        let isEleChangePass = $elem[0].className.split(/\s+/).includes("change-pass-item");
+        let isEleLogout = $elem[0].className.split(/\s+/).includes("logout-item");
+        let expandWidth = isEleChangePass ? "180px" : isEleLogout ? "110px" : "145px";
+
+
+        var angle = 0;
+				var t = setInterval(function () {
+					if (angle == 1440) {
+						clearInterval(t);
+						return;
+					}
+					// angle += 40;
+					// $('.link',$elem).stop().animate({rotate: '+=-40deg'}, 0);
+				}, 10);
+				$elem
+					.stop()
+					.animate({ width: expandWidth }, 300)
+					.find(".item_content")
+					.fadeIn(100, function () {
+						$(this).find("p").stop(true, true).fadeIn(200);
+					});
+			}
+			function collapse($elem) {
+				// console.log("collapse");
+				var angle = 1440;
+				var t = setInterval(function () {
+					if (angle == 0) {
+						clearInterval(t);
+						return;
+					}
+					// angle -= 40;
+					// $('.link',$elem).stop().animate({rotate: '+=40deg'}, 0);
+				}, 10);
+				$elem
+					.stop()
+					.animate({ width: "40px" }, 300)
+					.find(".item_content")
+					.stop(true, true)
+					.fadeOut()
+					.find("p")
+					.stop(true, true)
+					.fadeOut();
+			}
+
+
+// ------------------------- Change Password -------------------------
+$('#change-pass-submit-btn').on('click', function(){
+  let currentPassword = $('#current-pass').val();
+  let newPassword = $('#new-pass').val();
+
+  fs.readFile("./data/data.json", "utf8", function (err, data) {
+    if (err) return null;
+    jsonData = JSON.parse(data);
+    let masterKey = cryp.decrypt(jsonData.masterKey);
+
+    if(currentPassword === masterKey){
+      if(schema.validate(newPassword)){
+        changePassword(newPassword);
+      }
+      else{
+        $("#error-message").parent()[0].style.display = "flex";
+        $("#error-message").text("Password must be 6-100 characters long and contain at least 1 upper case letter, 1 number, 1 special character");
+        removeFlashMessage(".alert.alert-danger");
+      }
+    }
+    else {
+      // current password is incorrect
+      $("#error-message").parent()[0].style.display = "flex";
+      $("#error-message").text("Incorrect password");
+      removeFlashMessage(".alert.alert-danger");
+    }
+  });
+
+  // Clear form
+  $('#new-pass').val("");
+  $('#current-pass').val("");
+  $('#changePasswordModal').modal('hide');
+});
 
 
 });
