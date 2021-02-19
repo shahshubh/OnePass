@@ -28,7 +28,7 @@ exports.updateJsonData = (key, newKey, value, callback) => {
             i++;
         }
         if (!isFound) {
-            callback("the item is not found in the data store");
+            callback("Item not found.");
             return;
         }
 
@@ -36,7 +36,7 @@ exports.updateJsonData = (key, newKey, value, callback) => {
             if (err) 
                 message = "Error occured";
             else
-                message = "the item is updated";
+                message = "Updated successfully !!";
             callback(message);
         });
     });
@@ -88,7 +88,7 @@ exports.deleteJsonData = (key, callback) => {
             i++;
         }
         if (!isFound) {
-            callback("the item is not found in the data store");
+            callback("Item not found.");
             return;
         }
         elements.splice(index, 1);
@@ -97,7 +97,7 @@ exports.deleteJsonData = (key, callback) => {
             if (err) 
                 message = "Error occured";
             else
-                message = "the item is deleted";
+                message = "Deleted successfully !!";
             callback(message);
         });
     });

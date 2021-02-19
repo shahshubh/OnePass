@@ -312,7 +312,8 @@ body header #main_search_element.expand #search_icon_circle #search_icon_backgro
   position:relative;
   /* top:200px;
   left:100px; */
-  font-family: "Trebuchet MS", sans-serif;
+  /* font-family: "Trebuchet MS", sans-serif; */
+  /* font-family: "Open Sans", sans-serif; */
   font-size: 16px;
   font-style: normal;
   font-weight: bold;
@@ -384,7 +385,7 @@ body header #main_search_element.expand #search_icon_circle #search_icon_backgro
   font-size:14px;
 }
 .item_content a:hover{
-  color:#0b965b;
+  /* color:#0b965b; */
 }
 .item_content p {
   background-color:transparent;

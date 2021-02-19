@@ -7,10 +7,16 @@ body {
 	/* background: #f6f6f6 url(https://goo.gl/1yhE3P) top center no-repeat; */
 	background-size: cover;
 	font-family: "Open Sans", sans-serif;
+	/* font-family: 'Kanit', sans-serif; */
 	font-size: 14px;
 	margin: 0;
 }
 
+
+h1{
+	font-family: 'Kanit', sans-serif;
+	font-size: 38px !important;
+}
 
 
 /* ------------------------------------------ */

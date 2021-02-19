@@ -1,7 +1,6 @@
 const cryp = require('./utils/cryptography');
 const { loadJsonData } = require('./utils/handleData');
 
-
 function convertToCSV(objArray) {
     var array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
     var str = '';
@@ -40,7 +39,6 @@ function exportCSVFile(headers, items, fileTitle) {
         }
     }
 }
-
 
 function download(){    
     let headers = {

@@ -1,8 +1,13 @@
 var windowUtil = require("./js/windowUtil");
 var th = require("./js/templateHelper");
 
-$(() => {
 
+function scrollToBottom(elementName){
+  var element = document.querySelector(elementName);
+  element.scrollTop = element.scrollHeight - element.clientHeight;
+}
+
+$(() => {
     $("#message-cross").on("click", function(){
         $("#message").parent()[0].style.display = "none";
     });
@@ -55,54 +60,60 @@ $(() => {
                     passwordItems.append(content);
 
                     th.templateBinder();
+                    //scroll to bottom after adding item
+                    scrollToBottom(".table-mid-container");
                 }
             });
         });
     });
 
-    $('#filterKey').focus();
-});
-window.onload = function()
-{
-const ELEMENTS = {
-    MAIN_SEARCH_ELEMENT: "#main_search_element",
-    ACTION_EXPAND_ELEMENT: ".action-expand",
-    ACTION_COLLAPSE_ELEMENT: ".action-collapse"
-  };
-  
-  let isExpanded = false;
-  
-  const ToggleSearchElement = document.querySelector(
-    ELEMENTS.ACTION_EXPAND_ELEMENT
-  );
-  
-  const SearchIconCircleElement = document.querySelector(
-    ELEMENTS.MAIN_SEARCH_ELEMENT
-  );
-  
-  ToggleSearchElement.onclick = () => {
-    searchIconExpandToggle();
-  };
-  
-  const searchIconExpandToggle = () => {
-    isExpanded = !isExpanded;
-  
-    if (isExpanded) {
-      SearchIconCircleElement.classList.add("expand");
-  
-      watchForCollapseAction();
-    } else {
-      SearchIconCircleElement.classList.remove("expand");
-    }
-  };
-  
-  const watchForCollapseAction = () => {
+    // $('#filterKey').focus();
+
+
+
+    // Search Items
+
+    const ELEMENTS = {
+      MAIN_SEARCH_ELEMENT: "#main_search_element",
+      ACTION_EXPAND_ELEMENT: ".action-expand",
+      ACTION_COLLAPSE_ELEMENT: ".action-collapse"
+    };
+    
+    let isExpanded = false;
+    
     const ToggleSearchElement = document.querySelector(
-      ELEMENTS.ACTION_COLLAPSE_ELEMENT
+      ELEMENTS.ACTION_EXPAND_ELEMENT
     );
-  
+    
+    const SearchIconCircleElement = document.querySelector(
+      ELEMENTS.MAIN_SEARCH_ELEMENT
+    );
+    
     ToggleSearchElement.onclick = () => {
       searchIconExpandToggle();
     };
-  };
-}
+    
+    const searchIconExpandToggle = () => {
+      isExpanded = !isExpanded;
+    
+      if (isExpanded) {
+        SearchIconCircleElement.classList.add("expand");
+    
+        watchForCollapseAction();
+      } else {
+        SearchIconCircleElement.classList.remove("expand");
+      }
+    };
+    
+    const watchForCollapseAction = () => {
+      const ToggleSearchElement = document.querySelector(
+        ELEMENTS.ACTION_COLLAPSE_ELEMENT
+      );
+    
+      ToggleSearchElement.onclick = () => {
+        searchIconExpandToggle();
+      };
+    };
+
+
+});
