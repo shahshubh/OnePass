@@ -3,11 +3,13 @@ body,
 .container-fluid {
 	/* background-color: #f3f3f3; */
 	background-color: #fff;
+  font-family: sans-serif !important;
 
 }
 
 #container {
 	margin-top: 1em;
+  height : 100%;
 }
 
 #message {
@@ -40,7 +42,7 @@ hr{
 /*** Table Styles **/
 
 .table-mid-container{
-  height: 400px;
+  height: 500px;
   overflow: auto;
   margin-top: 30px;
 }
@@ -84,9 +86,10 @@ table td input {
 } */
 
 tr {
+  padding-top: 7px;
 	/* border-top: 1px solid #c1c3d1; */
-	/* border-bottom: 1px solid #c1c3d1; */
-    border: none;
+	border-bottom: 1px solid #c1c3d1;
+    /* border: none; */
 	color: #fff;
 	font-size: 16px;
 	font-weight: normal;
@@ -95,9 +98,10 @@ tr {
     /* width: 100%; */
     margin: 0;
     /* background-color: #fff; */
-    background: #ECE9E6;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #FFFFFF, #edecfa);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to left, #FFFFFF, #edecfa); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #ffffff;  /* fallback for old browsers */
+    /* Chrome 10-25, Safari 5.1-6 */
+    /* background: -webkit-linear-gradient(to right, #FFFFFF, #edecfa); */
+    /* background: linear-gradient(to left, #FFFFFF, #edecfa); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     /* background: linear-gradient(45deg, #49a09d, #5f2c82) !important; */
     /* border: 1px solid #fff; */
 
@@ -160,6 +164,7 @@ td input.form-control{
     padding-left: 10px;
     background-color: transparent;
     color: #000;
+    font-size: 16px;
 }
 
 td input.form-control:focus{
@@ -173,7 +178,7 @@ td button{
 }
 
 .key-td{
-	border-right: 1px solid #c1c3d1;
+	/* border-right: 1px solid #c1c3d1; */
 }
 
 .key-td, .value-td{
@@ -183,6 +188,7 @@ td button{
 /* .btn-td{
   flex: 0.5;
 } */
+
 
 
 
@@ -213,6 +219,25 @@ td.text-center {
 td.text-right {
 	text-align: right;
 }
+
+/* bottom part */
+.newpwditem {
+  width: 100%;
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  padding: 5px;
+  padding-bottom: 10px;
+  z-index: 2;
+  
+  /* background-color: #908ae0; */
+  background-color: #edecfa;
+}
+
+.round{
+  border-radius: 18rem !important; 
+}
+/* bottom part */
 
 /* body {
   padding: 0;
