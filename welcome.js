@@ -9,10 +9,12 @@ const handleData = require("./utils/handleData");
 
 const submitBtn = document.querySelector('#pswd-submit');
 const titleHead = document.querySelector('#title');
-const inputField = document.querySelector("#master-key");
 let masterKey = "";
 let isMasterPassword = false;
 let schema = new passwordValidator();
+
+const dataStorePath = __dirname+"/data/data.json";
+
 
 // password validator schema
 schema
@@ -45,8 +47,6 @@ function submitBtnHandler() {
     }
     else {
         if (schema.validate(enteredPass)) {
-            // let conf = confirm("Are you sure you want to set this as master password ?\nThere is no way back if you forget it !!");
-
             Confirm(
                 'Alert',
                 'Are you sure you want to set this as master password?\nThere is no way back if you forget it !!',
@@ -58,7 +58,7 @@ function submitBtnHandler() {
                             let data = jsonData;
                             data.masterKey = cryp.encrypt(enteredPass);
                             // console.log(jsonData);
-                            fs.writeFile("./data/data.json", JSON.stringify(jsonData, null, 2), function (err) {
+                            fs.writeFile(dataStorePath, JSON.stringify(jsonData, null, 2), function (err) {
                                 if (err) {
                                     console.log(err);
                                 }
@@ -80,10 +80,7 @@ function submitBtnHandler() {
 }
 
 
-
-fs.readFile("./data/data.json", "utf8", function (err, data) {
-    if (err) return null;
-    jsonData = JSON.parse(data);
+handleData.loadJsonData(function(jsonData){
     if (jsonData.masterKey) {
         isMasterPassword = true;
         masterKey = cryp.decrypt(jsonData.masterKey);
@@ -93,16 +90,8 @@ fs.readFile("./data/data.json", "utf8", function (err, data) {
     }
 });
 
-
 // submit button click
 submitBtn.addEventListener('click', submitBtnHandler);
-// inputField.addEventListener('keyup', function(e){
-//     if (e.keyCode  === 13) {
-//         e.preventDefault();
-//         console.log("ENTER");
-//         // submitBtnHandler();
-//     }
-// });
 
 function keyPressHandler(e) {
     if (e.keyCode === 13) {

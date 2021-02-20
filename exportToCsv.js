@@ -24,7 +24,7 @@ function exportCSVFile(headers, items, fileTitle) {
     var exportedFilenmae = fileTitle + '.csv' || 'export.csv';
 
     var blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-    if (navigator.msSaveBlob) { // IE 10+
+    if (navigator.msSaveBlob) {
         navigator.msSaveBlob(blob, exportedFilenmae);
     } else {
         var link = document.createElement("a");

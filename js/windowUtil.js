@@ -32,7 +32,7 @@ exports.generatePassword = (item) => {
     $(valueID).val(randomPassword);
 
     $("#message").parent()[0].style.display = "flex";
-    $("#message").text("The password is generated");
+    $("#message").text("Random password generated.");
     removeFlashMessage(".alert.alert-success");
     
 }
@@ -119,7 +119,4 @@ exports.deleteItem = (item) => {
             }
         }
     );
-    // let conf = confirm("Are you sure to delete the key ".concat(keyVal));
-    // if(!conf)
-        // return;
 }

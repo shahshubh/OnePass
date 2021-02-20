@@ -1,10 +1,17 @@
 const fs = require("fs");
 var cryp = require("./cryptography");
+const { app } = require("electron");
+
+let dataStorePath = __dirname;
+let tempPath = dataStorePath.split("\\");
+tempPath = tempPath.splice(0,tempPath.length - 1);
+
+dataStorePath = tempPath.join("/") + "/data/data.json";
 
 // load data from data store
 exports.loadJsonData = (callback) => {
     let jsonData = null;
-    fs.readFile("./data/data.json", "utf8", function(err, data) {
+    fs.readFile(dataStorePath, "utf8", function(err, data) {
         if(err) return callback(null);
         jsonData = JSON.parse(data);
         callback(jsonData);
@@ -32,7 +39,7 @@ exports.updateJsonData = (key, newKey, value, callback) => {
             return;
         }
 
-        fs.writeFile("./data/data.json", JSON.stringify(jsonData, null, 2), function (err) {
+        fs.writeFile(dataStorePath, JSON.stringify(jsonData, null, 2), function (err) {
             if (err) 
                 message = "Error occured";
             else
@@ -62,7 +69,7 @@ exports.addJsonData = (key, value, callback) => {
         let element = { "key": cryp.encrypt(key), "value": cryp.encrypt(value) };
         elements.push(element);
 
-        fs.writeFile("./data/data.json", JSON.stringify(jsonData, null, 2), function (err) {
+        fs.writeFile(dataStorePath, JSON.stringify(jsonData, null, 2), function (err) {
             if (err) {
                 callback(null);
                 return;
@@ -93,7 +100,7 @@ exports.deleteJsonData = (key, callback) => {
         }
         elements.splice(index, 1);
 
-        fs.writeFile("./data/data.json", JSON.stringify(jsonData, null, 2), function (err) {
+        fs.writeFile(dataStorePath, JSON.stringify(jsonData, null, 2), function (err) {
             if (err) 
                 message = "Error occured";
             else

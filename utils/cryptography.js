@@ -3,7 +3,7 @@ const configs = require("../configs/configs.json");
 
 // encryption key
 // get the encryption key from file or user environment
-const ENCRYPTION_KEY = configs.ENCRYPTION_KEY; //process.env.ENCRYPTION_KEY;
+const ENCRYPTION_KEY = configs.ENCRYPTION_KEY;
 const IV_LENGTH = configs.IV_LENGTH;
 const ALGORITHM = configs.ALGORITHM;
 

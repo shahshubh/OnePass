@@ -1,12 +1,12 @@
 const windowUtil = require("./js/windowUtil");
 const handleData = require("./utils/handleData");
 const th = require("./js/templateHelper");
-// const cryp = require("./utils/cryptography");
 const fs = require("fs");
 const passwordValidator = require('password-validator');
 let schema = new passwordValidator();
 const ipc = require('electron').ipcRenderer;
 
+const dataStorePath = __dirname+"/data/data.json";
 
 // password validator schema
 schema
@@ -35,7 +35,7 @@ function changePassword(newPassword){
     let data = jsonData;
     data.masterKey = cryp.encrypt(newPassword);
 
-    fs.writeFile("./data/data.json", JSON.stringify(jsonData, null, 2), function (err) {
+    fs.writeFile(dataStorePath, JSON.stringify(jsonData, null, 2), function (err) {
         if (err) {
             console.log(err);
         }
@@ -51,6 +51,7 @@ function changePassword(newPassword){
 }
 
 $(() => {
+
     $("#message-cross").on("click", function(){
         $("#message").parent()[0].style.display = "none";
     });
@@ -64,7 +65,7 @@ $(() => {
                 else
                     $(this).parent().parent(".pwditem").show();
             });
-            console.log($(".newpwditem *"));
+            // console.log($(".newpwditem *"));
             $(".newpwditem *").prop('disabled', true);
         }
         else {
@@ -81,10 +82,13 @@ $(() => {
 
     // load password items from the data file to UI
     windowUtil.loadItems(function (elements) {
-        var passwordItems = $("#passwordItems");
+      var passwordItems = $("#passwordItems");
+      
+        
         let index = 0;
         elements.forEach(element => {
             let content = th.templateContent(element, index);
+            // console.log(passwordItems);
             passwordItems.append(content);
             index++;
         });
@@ -168,7 +172,7 @@ $(() => {
     // ------------------------- Top Header Icons -------------------------
     const ipc = require("electron").ipcRenderer;
 			$(".logout-item").on("click", () => {
-				console.log("Logout");
+				// console.log("Logout");
 				ipc.send("load-page", "file://" + __dirname + "/welcome.html");
 			});
 
@@ -176,7 +180,6 @@ $(() => {
 
 			$(".item").hover(
 				function () {
-					console.log("print hovered");
 					var $this = $(this);
 					expand($this);
 				},
@@ -236,7 +239,7 @@ $('#change-pass-submit-btn').on('click', function(){
   let currentPassword = $('#current-pass').val();
   let newPassword = $('#new-pass').val();
 
-  fs.readFile("./data/data.json", "utf8", function (err, data) {
+  fs.readFile(dataStorePath, "utf8", function (err, data) {
     if (err) return null;
     jsonData = JSON.parse(data);
     let masterKey = cryp.decrypt(jsonData.masterKey);
@@ -254,7 +257,7 @@ $('#change-pass-submit-btn').on('click', function(){
     else {
       // current password is incorrect
       $("#error-message").parent()[0].style.display = "flex";
-      $("#error-message").text("Incorrect password");
+      $("#error-message").text("Current password you entered is incorrect");
       removeFlashMessage(".alert.alert-danger");
     }
   });

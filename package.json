@@ -5,15 +5,27 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dist": "electron-builder"
   },
   "author": "shubh shah",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
-    "electron": "^11.2.3"
+    "electron": "^11.2.3",
+    "electron-builder": "^22.9.1"
   },
   "dependencies": {
     "check-password-strength": "^1.0.15",
     "password-validator": "^5.1.1"
+  },
+  "build": {
+    "appId": "com.shubh.onepass",
+    "productName": "OnePass",
+    "target": "NSIS",
+
+    "nsis": {
+      "allowToChangeInstallationDirectory": true,
+      "oneClick": false
+    }
   }
 }

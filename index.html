@@ -17,7 +17,7 @@
 			integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
 			crossorigin="anonymous"
 		/>
-		<link rel="stylesheet" href="./css/style.css" />
+		<link rel="stylesheet" href="./css/index.css" />
 		<link rel="stylesheet" href="./css/confirm-dialog.css" />
 	</head>
 	<body>
@@ -74,36 +74,28 @@
 			<div id="top_element">
 				<div class="menu">
 					<div class="item logout-item">
-						<!-- <a class="link icon_home"></a> -->
-						<!-- <i class="fas fa-sign-out-alt"></i> -->
 						<i class="link icon_home fas fa-sign-out-alt"></i>
 						<div class="item_content">
-							<!-- <h2>Logout</h2> -->
 							<p>
 								<a href="#">Logout</a>
 							</p>
 						</div>
 					</div>
-
 					<div
 						class="item left change-pass-item"
 						data-toggle="modal"
 						data-target="#changePasswordModal"
 					>
-						<!-- <a class="link icon_home"></a> -->
 						<i class="link icon_home fas fa-key"></i>
 						<div class="item_content">
-							<!-- <h2>Change Master Pass</h2> -->
 							<p>
 								<a href="#">Change Password</a>
 							</p>
 						</div>
 					</div>
 					<div class="item export-csv-item">
-						<!-- <a class="link icon_home"></a> -->
 						<i class="link icon_home fas fa-file-export"></i>
 						<div class="item_content">
-							<!-- <h2>Export Excel</h2> -->
 							<p>
 								<a href="#">Export To Csv</a>
 							</p>
@@ -115,9 +107,7 @@
 				<div id="search_icon_circle">
 					<div id="search_icon_background">
 						<i class="fa fa-search action-expand" aria-hidden="true"></i>
-
 						<input id="filterKey" type="text" placeholder="Search" />
-
 						<i
 							id="resetFilter"
 							class="fa fa-times action-collapse"
@@ -128,7 +118,6 @@
 			</div>
 		</header>
 		<div id="container" class="container-fluid">
-			<!-- <hr /> -->
 			<div class="alert alert-success" role="alert">
 				<span id="message"></span>
 				<i id="message-cross" class="fas fa-times"></i>
@@ -139,34 +128,10 @@
 			</div>
 			<div class="table-mid-container">
 				<table class="table-fill">
-					<!-- <thead>
-                    <tr row pwditem style="color: black;width: 100%;border-bottom: 1px solid #c1c3d1;border-top: 1px solid #c1c3d1;">
-                        <th class="text-left form-control" scope="col" style="border: none;font-size: 19px;">Key</th>
-                        <th class="text-left form-control" scope="col" style="border:none;position: relative;right: 5%;font-size: 19px;">Password</th>
-                        
-                    </tr>
-                </thead> -->
 					<tbody id="passwordItems">
-						<!-- <tr  class="row pwditem" >
-                        <td class="text-left key-td">
-                            
-                        </td>
-                        <td class="text-left value-td">
-                            <input id="%VALUEID%" type="password" class="form-control form-control-sm text-input value" value="%VALUE%" />
-                        </td>
-                        
-                    </tr> -->
 					</tbody>
 				</table>
 			</div>
-
-			<!-- <hr /> -->
-			<!-- <hr /> -->
-			<!-- <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div id="message"></div>
-            </div>
-        </div> -->
 		</div>
 		<div>
 			<div style="margin: 0" class="row newpwditem">
@@ -185,7 +150,6 @@
 							aria-describedby="basic-addon1"
 						/>
 					</div>
-					<!-- <input id="key_9999" type="text" class="form-control text-input key" placeholder="key" /> -->
 				</div>
 				<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
 					<div class="input-group">
@@ -202,7 +166,6 @@
 							aria-describedby="basic-addon1"
 						/>
 					</div>
-					<!-- <input id="value_9999" type="password" class="form-control text-input value" /> -->
 				</div>
 
 				<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
@@ -215,7 +178,6 @@
 						>
 							<i class="fas fa-random fa-md"></i>
 						</button>
-						<!-- <button id="sbtn_9999" type="button" class="btn btn-success addNew" title="add new item"><i class="fas fa-plus-circle fa-lg"></i></button> -->
 						<button
 							id="sbtn_9999"
 							type="button"
@@ -229,8 +191,6 @@
 				</div>
 			</div>
 		</div>
-
-
 
 		<script
 			src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -246,8 +206,6 @@
 			integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
 			crossorigin="anonymous"
 		></script>
-		<!-- <script src="./js/jquery-css-transform.js" type="text/javascript"></script> -->
-		<script src="./js/jquery-animate-css-rotate-scale.js" type="text/javascript" ></script>
 		<script src="./exportToCsv.js" charset="utf-8"></script>
 		<script src="./window.js" charset="utf-8"></script>
 	</body>
