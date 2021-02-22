@@ -24,10 +24,10 @@ function scrollToBottom(elementName){
   element.scrollTop = element.scrollHeight - element.clientHeight;
 }
 
-function removeFlashMessage(className){
+function removeFlashMessage(className, duration=2500){
   setTimeout(function(){
       $(className).fadeOut('fast');
-  }, 1500);
+  }, duration);
 }
 
 function changePassword(newPassword){
@@ -251,7 +251,7 @@ $('#change-pass-submit-btn').on('click', function(){
       else{
         $("#error-message").parent()[0].style.display = "flex";
         $("#error-message").text("Password must be 6-100 characters long and contain at least 1 upper case letter, 1 number, 1 special character");
-        removeFlashMessage(".alert.alert-danger");
+        removeFlashMessage(".alert.alert-danger", 3500);
       }
     }
     else {

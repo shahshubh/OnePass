@@ -6,7 +6,7 @@ const { Confirm } = require('../utils/confirm-dialog');
 function removeFlashMessage(className){
     setTimeout(function(){
         $(className).fadeOut('fast');
-    }, 2000);
+    }, 2500);
 }
 
 // show password when input field is focused
